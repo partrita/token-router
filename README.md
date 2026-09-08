@@ -108,6 +108,38 @@ See [docs/benchmark-report.md](docs/benchmark-report.md) for methodology, caveat
 ollama pull gemma4:e2b-it-q4_K_M
 ```
 
+### One-command install
+
+The included installer can install the shared skill for Codex, OpenCode, and Antigravity CLI in one step. It clones the repository into `~/.local/share/token-router` when needed and copies the skill into each selected client's skill directory.
+
+Install for all supported clients:
+
+```bash
+bash scripts/install.sh
+```
+
+Install for only one client:
+
+```bash
+bash scripts/install.sh --opencode
+bash scripts/install.sh --antigravity
+bash scripts/install.sh --codex
+```
+
+Or run the installer directly from a checkout-free environment:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/partrita/token-router/main/scripts/install.sh)
+```
+
+Then install the default local routing model:
+
+```bash
+ollama pull gemma4:e2b-it-q4_K_M
+```
+
+The installer does not install Ollama itself. See [docs/agent-skills.md](docs/agent-skills.md) for the skill layout and client-specific details.
+
 ### Run Against A Large Log
 
 ```bash
